@@ -48,7 +48,7 @@ Ora dobbiamo effettuare il linking:
 
     gcc utility.o my_awesome_program.o -o my_awesome_program
     
-Questo creerà un **eseguibile** chiamato my_awesome_program. Digitando in linea di comando:
+Questo creerà un **eseguibile** chiamato my_awesome_program: fondamentalmente hai richiamato il linker che ha incollato i codici macchina di utility.o e di my_awesome_program.o insieme. In più, implicitamente, ha collegato il tuo codice applicativo con delle *shared libraries* di sistema (la funzione `printf` è definita in una libreria di sistema, la *stdio*) in modo che il tuo eseguibile potesse utilizzare il codice macchina della `printf`. Digitando in linea di comando:
 
     ./my_awesome_program
     
@@ -59,3 +59,22 @@ Link Utili
 ==========
 
 * https://www.calleerlandsson.com/the-four-stages-of-compiling-a-c-program/
+
+
+Curiosità
+=========
+
+Immagina di esserti dimenticato di collegare `utility.o` a `my_awesome_program.o`. Ossia:
+
+    gcc -c my_awesome_program.c
+    gcc -c utility.c
+    gcc my_awesome_program.c -o my_awesome_program
+    
+In questo caso il linker si lamenterà con:
+
+    koldar@koldar:~/Desktop/Skull$ gcc my_awesome_program.c -o my_awesome_program
+    /tmp/ccMJof6N.o: In function `my_awesome_program':
+    my_awesome_program.c:(.text+0x1a): undefined reference to `get_maximum_of_2_numbers'
+    collect2: error: ld returned 1 exit status
+    
+Questo è un classico errore da linker: esso si sta lamentando che non trova il codice macchina della funzione "get_maximum_of_2_numbers". Tra parentesi `ld` è il linker vero e proprio.
