@@ -1,4 +1,9 @@
-Introduzione
+La problematica
+===============
+
+Partire dal codice sorgente scritto in C ed arrivare ad un programma eseguibile è il processo che viene denominato **il processo di build**. Questo processo, seppur teoricamente lineare, spesso causa problemi durante la compilazione di 
+
+Fasi di c
 ============
 
 Partire dal codice sorgente scritto in C ed arrivare ad un programma eseguibile è il processo che viene denominato **il processo di build**. Questo processo è suddiviso in varie fase, che elenchiamo:
@@ -58,7 +63,8 @@ il computer eseguirà il vostro programma, ossia stamperà 4.
 Link Utili
 ==========
 
-* https://www.calleerlandsson.com/the-four-stages-of-compiling-a-c-program/
+* Capire le fasi di compilazione: https://www.calleerlandsson.com/the-four-stages-of-compiling-a-c-program/;
+* Alcune flag molto utili in ambiente di produzione: http://blog.httrack.com/blog/2014/03/09/what-are-your-gcc-flags/;
 
 
 Curiosità
