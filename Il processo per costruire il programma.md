@@ -59,6 +59,24 @@ Questo creerà un **eseguibile** chiamato my_awesome_program: fondamentalmente h
     
 il computer eseguirà il vostro programma, ossia stamperà 4.
 
+Alcune Flag utili
+-----------------
+
+| Flag | Descrizione | Note |
+|:----:|-------------|------|
+| -e   | Esegue solo fino al processo di preprocessing | Usato per controllare se la tua macro programming fa quello che pensi che debba fare |
+| -s   | Esegue solo fino al processo di compilazione  | Usato di rado |
+| -c   | Esegue solo fino al processo di assembly      | Una delle flag più usata per modularizzare il tuo codice |
+| -o   | Definisce il nome che l'output di `gcc` dovrà avere | |
+| -L   | Cartelle in cui cercare shared libraries addizionali | |
+| -l   | il *linker name* della shared library che vuoi linkare al tuo codice | Per un comportamento corretto, inserisci questi flag alla fine del comando di compilazione. L'ordine dei comandi è importante |
+| -I   | Cartella in cui sono presenti *header* files addizionali | |
+| -D   | Durante il processo di compilazione la costante di preprocessore specificata sarà definita | |
+| -U   | Durante il processo di compilazione la costante di preprocessore specificata non sarà definita | |
+| -g   | Flag usato per gestire il livello di informazioni di debug da aggiungere al tuo *machine code* | |
+| -O   | Flag usato per gestire il livello di ottimizzazione del compilatore | |
+| -W   | Flag usato per gestire il trattamento di alcuni warning lanciati dal compilatore | |
+
     
 Link Utili
 ==========
