@@ -1,17 +1,17 @@
 La problematica
 ===============
 
-Partire dal codice sorgente scritto in C ed arrivare ad un programma eseguibile è il processo che viene denominato **il processo di build**. Questo processo, seppur teoricamente lineare, spesso causa problemi durante la compilazione di 
+Partire dal codice sorgente scritto in C ed arrivare ad un programma eseguibile è il processo che viene denominato **il processo di build**. Questo processo, seppur teoricamente lineare, spesso causa problemi durante la compilazione dei programmi. Questo documento ti spiegherà come avviene il **processo di building** e ti spiegherà alcuni comandi del `gcc` che gestiscono quel processo.
 
-Fasi di c
-============
+Fasi di compilazione
+====================
 
 Partire dal codice sorgente scritto in C ed arrivare ad un programma eseguibile è il processo che viene denominato **il processo di build**. Questo processo è suddiviso in varie fase, che elenchiamo:
 
-1. Preprocessing: ogni file *.c del codice sorgente viene dato in pasto al *preprocessore* che si occupa di gestire ogni *istruzione del preprocessore* (per esempio #define);
-2. Compilazione: il compilatore analizza il codice sorgente .c generato dal preprocessore e ne controlla errori grammaticali, sintattici e semantici e ne genera il codice assembly;
-3. Assembly: durante questa fase viene richiamato l'*assembler*, un programma che legge l'output generato dalla compilazione e produce il codice macchina, o *object code*;
-4. Linking: tutte le precedenti fasi riguardano **singoli** file sorgente *.c. Spesso però è molto comodo divide le varie funzioni che si scrivono in diversi file (sia per non avere file da 10000000 righe sia per poter organizzare il proprio codice meglio). Se si scrivono più file succederà sicuramente di voler richiamare una funzione di un file da un altro file: per esempio dopo aver scritto la funzione "get_maximum_of_2_numbers" nel file "utility.c" la si vorrà usare nel proprio programma "my_awesome_program.c". Questo significa che il processo di building deve sapere che l'output dell'assembly del file "my_awesome_program" utilizza una funzione chiamata "get_maximum_of_2_numbers" che però non è definita nel file (ricorda le 3 precedenti fasi vengono effettuate **singolarmente** per ogni file .c che scrivi!). Il processo di *linking* effettua questa associazione: fa in modo di inserire nell'eseguibile finale i vari pezzi di codice assembly richiesti in modo che ogni funzione utilizzata dal programma sia definita. Il processo di linking può associare al tuo eseguibile 3 tipi di file:
+1. **Preprocessing**: ogni file *.c del codice sorgente viene dato in pasto al *preprocessore* che si occupa di gestire ogni *istruzione del preprocessore* (per esempio #define);
+2. **Compilazione**: il compilatore analizza il codice sorgente .c generato dal preprocessore e ne controlla errori grammaticali, sintattici e semantici e ne genera il codice assembly;
+3. **Assembly**: durante questa fase viene richiamato l'*assembler*, un programma che legge l'output generato dalla compilazione e produce il codice macchina, o *object code*;
+4. **Linking**: tutte le precedenti fasi riguardano **singoli** file sorgente *.c. Spesso però è molto comodo divide le varie funzioni che si scrivono in diversi file (sia per non avere file da 10000000 righe sia per poter organizzare il proprio codice meglio). Se si scrivono più file succederà sicuramente di voler richiamare una funzione di un file da un altro file: per esempio dopo aver scritto la funzione "get_maximum_of_2_numbers" nel file "utility.c" la si vorrà usare nel proprio programma "my_awesome_program.c". Questo significa che il processo di building deve sapere che l'output dell'assembly del file "my_awesome_program" utilizza una funzione chiamata "get_maximum_of_2_numbers" che però non è definita nel file (ricorda le 3 precedenti fasi vengono effettuate **singolarmente** per ogni file .c che scrivi!). Il processo di *linking* effettua questa associazione: fa in modo di inserire nell'eseguibile finale i vari pezzi di codice assembly richiesti in modo che ogni funzione utilizzata dal programma sia definita. Il processo di linking può associare al tuo eseguibile 3 tipi di file:
  * machine code;
  * static libraries;
  * dynamic libraries;
@@ -43,7 +43,7 @@ ed il file "my_awesome_program.c":
 Ora, eseguiamo le prime 3 fasi per il file "utility.c". Da linea di comando:
 
     gcc -c utility.c
-    #il compilatore ha creato il fiel utility.o
+    #il compilatore ha creato il file utility.o
     
 I file contenenti *object code* hanno solitamente estensione "*.o". Facciamo la stessa cosa con "my_awesome_program.c":
 
@@ -77,6 +77,45 @@ Alcune Flag utili
 | -O   | Flag usato per gestire il livello di ottimizzazione del compilatore | |
 | -W   | Flag usato per gestire il trattamento di alcuni warning lanciati dal compilatore | |
 
+Esempi di come usare le flag
+----------------------------
+
+Per gestire le fasi di compilazione e l'output, esempi possono essere:
+
+    gcc -e my_awesome_program.c
+    gcc -s my_awesome_program.c
+    gcc -c my_awesome_program.c
+    gcc -c my_awesome_program.c -o my_awesome_program.o
+
+Se devi utilizzare una libreria dinamica, imposta il suo percorso tramite `-L` e poi usa il suo nome con `-l`. Ricardati di mettere il `-l` alla fine del comando.
+
+    gcc -L/home/piero/my_shared_libraries/ my_awesome_program.o -lmylib
+    
+Se devi usare header file esterni, usa `-I`:
+
+    gcc -I/home/piero/my_headers/ -c my_awesoe_program.c
+    
+Se il gcc esegue la fase di processing (ovvero sempre tranne quando esegui il linking con i file *machine code*), puoi usare `-D` e `-U` per definire/non definire alcune macro. Per esempio possiamo definire in fase di compilazione un macro "DEBUG" che attiva dei `printf` che aiutano a debuggare il programma:
+
+    int main(int argc, const char* args[]) {
+        int a = 5 + 4;
+        #ifdef DEBUG
+        printf("a is %d\n", a);
+        #endif
+        return 0;
+    }
+
+Per definire "DEBUG" puoi fare:
+
+    gcc -DDEBUG -c my_awesome_program.c
+    #ora sarà definita la macro "DEBUG"
+    
+Per fare in modo di rimuovere la definizione di una macro, puoi fare:
+
+    gcc -UDEBUG -c my_awesome_program.c
+    #la macro DEBUG non è definita
+    
+Di default tutte le macro devono essere definite esplicitamente.
     
 Link Utili
 ==========
