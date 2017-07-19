@@ -11,6 +11,9 @@ increase:
 	.cfi_startproc
 	movl	(%rdx), %eax
 	addl	%eax, (%rdi)
+	# here the CPU loads the value pointed by c. It needs to do that because maybe c=a: 
+	# if this is the case the line *a = *a + *c has changed not only *a, but *c as well!
+	# This is why the CPU needs to reload *c
 	movl	(%rdx), %eax
 	addl	%eax, (%rsi)
 	ret
