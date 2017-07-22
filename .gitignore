@@ -1,7 +1,6 @@
 # Prerequisites
 #MAC XCODEexlude everything except logutiliy
-/*
-!/LogUtility
+/LogUtility.xcodeproj
 #END MAC XCODE
 *.d
 
