@@ -25,6 +25,8 @@
 /* Begin PBXFileReference section */
 		1DFC26791F233FC8008BB306 /* LogUtility */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LogUtility; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DFC267C1F233FC8008BB306 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		1DFC26831F233FEC008BB306 /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = log.h; path = log/log.h; sourceTree = "<group>"; };
+		1DFC26841F2380BA008BB306 /* common_facilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = common_facilities.h; path = log/common_facilities.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				1DFC267C1F233FC8008BB306 /* main.c */,
+				1DFC26831F233FEC008BB306 /* log.h */,
+				1DFC26841F2380BA008BB306 /* common_facilities.h */,
 			);
 			path = LogUtility;
 			sourceTree = "<group>";
