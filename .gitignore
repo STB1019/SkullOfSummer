@@ -1,4 +1,8 @@
 # Prerequisites
+#MAC XCODEexlude everything except logutiliy
+/*
+!/LogUtility
+#END MAC XCODE
 *.d
 
 # Object files
