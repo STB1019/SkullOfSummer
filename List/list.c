@@ -2,11 +2,6 @@
 
 #include <stdlib.h>
 
-typedef struct list_cell {
-	void* payload;
-	struct list_cell* next;
-} list_cell;
-
 struct list {
 	int size;
 	list_cell* head;
