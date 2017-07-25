@@ -7,6 +7,11 @@ typedef struct list list;
 
 list* initList();
 
+typedef struct list_cell {
+	void* payload;
+	struct list_cell* next;
+} list_cell;
+
 void destroyList(list* l);
 
 void destroyListWithElement(list* l, void (*d)(void*));
