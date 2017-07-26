@@ -1,2 +1,3 @@
 # SkullOfSummer
-Learn stuff with less 7-days
+
+Learn C stuff in less than 7 days :)
