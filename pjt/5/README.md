@@ -1,5 +1,7 @@
 _Quando il gioco si fa duro, spegni la console e lasciala raffreddare._
 
+![tooltip](http://www.zanongiocattoli.it/image/cache/data/Hasbro/forza%204%20hasbro12-500x500.jpg)
+
 Seguendo le regole del forza 4, implementare un gioco con le segenti varianti:
 * Ciascun giocatore vede solo i propri gettoni
 * I gettoni cadono sino a quando non giacciono sul fondo o su altri gettoni
