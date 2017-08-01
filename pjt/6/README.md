@@ -1,6 +1,8 @@
-_Programma et IMPERA!_
+# Una SORTa di Utility
 
 ![tooltip](http://del.h-cdn.co/assets/16/23/980x490/landscape-1465585568-header.jpg)
+
+_Programma et IMPERA!_
 
 Si desidera implementare una utility per l’ordinamento di una lista bidirezionale, i cui elementi vengono generati randomicamente ad inizio programma.
 
