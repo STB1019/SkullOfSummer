@@ -20,4 +20,5 @@ Il file è dotato di un’estensione, che definisce la tipologia di parsing nece
 Il programma deve salvare la struttura dati in un file, al fine di recuperare più velocemente la struttura dati. Si suppone valida l’univocità tra nome del file e struttura salvata.
 
 **Obiettivo Platino**: riconoscimento “automatico” del parsing necessario da implementare
+
 **Obiettivo Diamante**: L’utility permette di convertire il contenuto di un file in ingresso, in una delle altre due sintassi, ricevendo in ingresso al programma il file di origine ed il file di destinazione.
