@@ -1,5 +1,7 @@
 _Programma et IMPERA!_
 
+![tooltip](http://del.h-cdn.co/assets/16/23/980x490/landscape-1465585568-header.jpg)
+
 Si desidera implementare una utility per l’ordinamento di una lista bidirezionale, i cui elementi vengono generati randomicamente ad inizio programma.
 
 Ciascun elemento generato viene definito con i seguenti attributi
