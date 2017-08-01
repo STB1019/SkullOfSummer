@@ -1,5 +1,5 @@
 
-
+![](http://blog.roadtripnation.com/wp-content/uploads/2013/05/MayTheForce-Banner.jpg)#
 
 Realizzare una libreria (sia shared che static library) per la gestione di strutture comuni come la lista (uni e bidirezionale), Heap e Grafiasddsa
 
