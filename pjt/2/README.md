@@ -1,3 +1,5 @@
+![](http://www.iotleague.com/wp-content/uploads/2015/11/Iot1.png)
+
 _Complimenti, il progetto più simpatico è tuo!_
 
 Dovrai realizzare un server ed almeno 4 clients che comunichino tra loro scambiandosi un set di messaggi particolari.
