@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "socket.h": "c",
+        "in.h": "c",
+        "stdio.h": "c",
+        "string.h": "c",
+        "stdio2.h": "c",
+        "fcntl.h": "c",
+        "string2.h": "c",
+        "inet.h": "c",
+        "unistd.h": "c"
+    }
+}
