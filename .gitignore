@@ -1,8 +1,12 @@
 # Prerequisites
 #MAC XCODEexlude everything except logutiliy
 /LogUtility.xcodeproj
+.DS_Store
 #END MAC XCODE
 *.d
+
+#directories
+build/
 
 # Object files
 *.o
